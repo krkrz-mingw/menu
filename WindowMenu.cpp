@@ -12,7 +12,7 @@ std::map<int, WindowMenuItem*> WindowMenuItem::ID_TO_ITEM;
 extern const tjs_char* TVPMenuIDOverflow;
 
 int WindowMenuItem::GetNewMenuId( WindowMenuItem* item ) {
-	// —v‘f‚ª‚ ‚éê‡‚Í‚»‚ê‚ð•Ô‚·
+	// è¦ç´ ãŒã‚ã‚‹å ´åˆã¯ãã‚Œã‚’è¿”ã™
 	if( FREE_ID_LIST.size() > 0 ) {
 		int result = FREE_ID_LIST.back();
 		FREE_ID_LIST.pop_back();
@@ -268,7 +268,7 @@ void WindowMenuItem::SetEnabled( bool b ) {
 void WindowMenuItem::SetGroupIndex( int group ) {
 	group_no_ = group;
 	if( parent_ && GetChecked() && GetRadioItem() ) {
-		// Ž©g‚ªcheck‚Â‚¢‚Ä‚¢‚ÄA‘¼‚É‚àcheck‚Â‚¢‚Ä‚¢‚é‚à‚Ì‚ª‚ ‚éê‡‚ÍŽ©g‚Ìcheck‚ðŠO‚·
+		// è‡ªèº«ãŒcheckã¤ã„ã¦ã„ã¦ã€ä»–ã«ã‚‚checkã¤ã„ã¦ã„ã‚‹ã‚‚ã®ãŒã‚ã‚‹å ´åˆã¯è‡ªèº«ã®checkã‚’å¤–ã™
 		int index = parent_->GetCheckRadioIndex(group);
 		if( index >= 0 ) {
 			menu_item_info_.fState &= ~MFS_CHECKED;
@@ -285,7 +285,7 @@ void WindowMenuItem::SetRadioItem( bool b ) {
 		menu_item_info_.fType &= ~MFT_RADIOCHECK;
 	}
 	if( b && parent_ && GetChecked() ) {
-		// Ž©g‚ªcheck‚Â‚¢‚Ä‚¢‚ÄA‘¼‚É‚àcheck‚Â‚¢‚Ä‚¢‚é‚à‚Ì‚ª‚ ‚éê‡‚ÍŽ©g‚Ìcheck‚ðŠO‚·
+		// è‡ªèº«ãŒcheckã¤ã„ã¦ã„ã¦ã€ä»–ã«ã‚‚checkã¤ã„ã¦ã„ã‚‹ã‚‚ã®ãŒã‚ã‚‹å ´åˆã¯è‡ªèº«ã®checkã‚’å¤–ã™
 		int index = parent_->GetCheckRadioIndex(group_no_);
 		if( index >= 0 ) {
 			menu_item_info_.fState &= ~MFS_CHECKED;

@@ -90,16 +90,16 @@ extern const tjs_char* TVPNotChildMenuItem;
 	TVPThrowExceptionMessage(TVPInternalError, __FILE__,  __LINE__)
 
 /**
-	* ƒƒbƒZ[ƒWóMŠÖ”–{‘Ì
-	* @param userdata ƒ†[ƒUƒf[ƒ^(‚±‚Ìê‡ƒlƒCƒeƒBƒuƒIƒuƒWƒFƒNƒgî•ñ)
-	* @param Message ƒEƒCƒ“ƒhƒEƒƒbƒZ[ƒWî•ñ
+	* ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡é–¢æ•°æœ¬ä½“
+	* @param userdata ãƒ¦ãƒ¼ã‚¶ãƒ‡ãƒ¼ã‚¿(ã“ã®å ´åˆãƒã‚¤ãƒ†ã‚£ãƒ–ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆæƒ…å ±)
+	* @param Message ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æƒ…å ±
 	*/
 static bool __stdcall MyReceiver(void *userdata, tTVPWindowMessage *Message) {
 	tTJSNI_MenuItem *obj = (tTJSNI_MenuItem*)userdata;
 	switch (Message->Msg) {
-	case TVP_WM_DETACH: // ƒEƒCƒ“ƒhƒE‚ªØ‚è—£‚³‚ê‚½
+	case TVP_WM_DETACH: // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒåˆ‡ã‚Šé›¢ã•ã‚ŒãŸ
 		break; 
-	case TVP_WM_ATTACH: // ƒEƒCƒ“ƒhƒE‚ªİ’è‚³‚ê‚½
+	case TVP_WM_ATTACH: // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒè¨­å®šã•ã‚ŒãŸ
 		break;
 	case WM_COMMAND: {
 		WORD wID = Message->WParam & 0xFFFF;
@@ -159,7 +159,7 @@ tjs_error TJS_INTF_METHOD tTJSNI_MenuItem::Construct(tjs_int numparams, tTJSVari
 		MenuItem = new WindowMenuItem(this,HWnd,hMenu);
 		::SetMenu( HWnd, hMenu );
 		iTJSDispatch2 *obj = OwnerWindow;
-		// registerMessageReceiver ‚ğŒÄ‚Ô
+		// registerMessageReceiver ã‚’å‘¼ã¶
 		tTJSVariant mode, proc, userdata;
 		tTJSVariant *p[3] = {&mode, &proc, &userdata};
 		mode = (tTVInteger)(tjs_int)wrmRegister;
@@ -579,7 +579,7 @@ static iTJSNativeInstance * TJS_INTF_METHOD Create_NI_MenuItem() {
 iTJSDispatch2 * TVPCreateNativeClass_MenuItem() {
 	tTJSNativeClassForPlugin * classobj = TJSCreateNativeClassForPlugin(TJS_W("MenuItem"), Create_NI_MenuItem);
 	
-	/// ƒƒ“ƒo’è‹`
+	/// ãƒ¡ãƒ³ãƒå®šç¾©
 	TJS_BEGIN_NATIVE_MEMBERS(MenuItem) // constructor
 	TJS_DECL_EMPTY_FINALIZE_METHOD
 //----------------------------------------------------------------------

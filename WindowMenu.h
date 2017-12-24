@@ -40,7 +40,7 @@ private:
 	void Remove( WindowMenuItem* item, bool ignoreupdate = false );
 
 	/**
-	 * ‘S‚Ä‚Ì€–Ú‚ğíœ‚µ‚Ä‚©‚ç’Ç‰Á‚µ’¼‚·
+	 * å…¨ã¦ã®é …ç›®ã‚’å‰Šé™¤ã—ã¦ã‹ã‚‰è¿½åŠ ã—ç›´ã™
 	 */
 	void UpdateChildren();
 	void UpdateMenu( bool rebuild = true );
@@ -50,11 +50,11 @@ private:
 	void UncheckRadioItem( int group );
 
 	/**
-	 * w’èƒOƒ‹[ƒv‚Ì“à‚Åcheck‚ª‚Â‚¢‚Ä‚¢‚éƒAƒCƒeƒ€ƒCƒ“ƒfƒbƒNƒX‚ğæ“¾‚·‚é
+	 * æŒ‡å®šã‚°ãƒ«ãƒ¼ãƒ—ã®å†…ã§checkãŒã¤ã„ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹
 	 */
 	int GetCheckRadioIndex( int group );
 	/**
-	 * ƒ‰ƒWƒIƒAƒCƒeƒ€‰»‚·‚é‚É
+	 * ãƒ©ã‚¸ã‚ªã‚¢ã‚¤ãƒ†ãƒ åŒ–ã™ã‚‹æ™‚ã«
 	 */
 	void RadioItemSafeCheck();
 
