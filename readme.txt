@@ -1,17 +1,17 @@
-���g����
+●使い方
 
-�g���g���y�Ń��j���[(MenuItem, Window.menu)���g�����܂��B
-���L�̂悤�ɂ���Window�C���X�^���X�쐬�O�ɖ{�v���O�C���������N���Ă��������B
+吉里吉里Ｚでメニュー(MenuItem, Window.menu)を拡張します。
+下記のようにしてWindowインスタンス作成前に本プラグインをリンクしてください。
 
 @if (kirikiriz)
 Plugins.link("menu.dll");
 @endif
 
-�����N��̊�{�I�ȃ��j���[�̋@�\�͋g���g���Q�Ɠ��l�ł��B
+リンク後の基本的なメニューの機能は吉里吉里２と同様です。
 
 
-���V���[�g�J�b�g�Ɏw��\�ȕ����ꗗ
-���V���[�g�J�b�g�Ƃ��ċ@�\���邩�͕ʖ��ŁA������͖��m�F�̂��ߒ���
+●ショートカットに指定可能な文字一覧
+※ショートカットとして機能するかは別問題で、そちらは未確認のため注意
 
 Backspace
 Tab
@@ -21,8 +21,8 @@ Shift
 Ctrl
 Alt
 Esc
-�ϊ�
-���ϊ�
+変換
+無変換
 Space
 Page Up
 Page Down
@@ -123,42 +123,42 @@ F
 /
 @
 [
-\
+¥
 ]
 ^
-\
+¥
 Caps Lock
-�Ђ炪��
-���p/�S�p
+ひらがな
+半角/全角
 
 
-���g���g���Q�Ƃ̌݊����ɂ���
+●吉里吉里２との互換性について
 
-�E�t���X�N���[���Ń��j���[�o�[�̎��������^�\���@�\������܂���
-��TJS���ŗ\�ߏ�������Ȃǂ̑Ή����s���Ă�������
+・フルスクリーンでメニューバーの自動消去／表示機能がありません
+＞TJS側で予め消去するなどの対応を行ってください
 
-�E���L�V���[�g�J�b�g�����v���p�e�B���g������܂�
+・下記ショートカット向けプロパティが拡張されます
 
 global.MenuItem.textToKeycode = %[ ... ];
 global.MenuItem.keycodeToText =  [ ... ];
 
-MenuItem.shortcut�̃V���[�g�J�b�g�L�[�̕�����̕ϊ��e�[�u���ł��B
-���z�L�[�R�[�h�ƃe�L�X�g�̑��ݕϊ��Ɏg�p����܂��B
-�i�����̕��̓L�[��S���������ɂ��Ďg�p���Ă��������j
+MenuItem.shortcutのショートカットキーの文字列の変換テーブルです。
+仮想キーコードとテキストの相互変換に使用されます。
+（辞書の方はキーを全部小文字にして使用してください）
 
 textToKeycode[text.toLowerCase()] = VK_*;
 keycodeToText[VK_*] = text;
 
-�ڍׂ̓v���O�C�������N��̏�L�����^�z��̒��g���m�F���Ă��������B
-���g�����������邱�Ƃ��ł��܂����AMenuItem������ł̕ύX�͍s��Ȃ��ł��������B
+詳細はプラグインリンク後の上記辞書／配列の中身を確認してください。
+中身を書き換えることができますが、MenuItem生成後での変更は行わないでください。
 
-�g���g���Q�݊��p�ɗ\�߉��L���ǉ�����Ă��܂��B
+吉里吉里２互換用に予め下記が追加されています。
 textToKeycode["BkSp".toLowerCase()] = VK_BACK;
 textToKeycode["PgUp".toLowerCase()] = VK_PRIOR;
 textToKeycode["PgDn".toLowerCase()] = VK_NEXT;
 
-�E��L�ϊ��e�[�u���̎d�l�ɂ��AMenuItem.shortcut�̕\�L���ς��ꍇ������܂�
-�i������ˉ��z�L�[�R�[�h�����΂P�̂��߁A�ݒ��͐��K������܂��j
+・上記変換テーブルの仕様により、MenuItem.shortcutの表記が変わる場合があります
+（文字列⇒仮想キーコードが多対１のため、設定後は正規化されます）
 
 	var item = new MenuItem(window, "shortcut normalize test");
 	item.shortcut = "Shift+BkSp";

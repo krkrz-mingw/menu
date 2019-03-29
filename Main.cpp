@@ -5,6 +5,8 @@
 #include <tchar.h>
 #include <string.h>
 
+#define EXPORT(hr) extern "C" __declspec(dllexport) hr __stdcall
+
 const tjs_char* TVPSpecifyWindow = NULL;
 const tjs_char* TVPSpecifyMenuItem = NULL;
 const tjs_char* TVPInternalError = NULL;
@@ -170,7 +172,7 @@ int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved
 }
 //---------------------------------------------------------------------------
 static tjs_int GlobalRefCountAtInit = 0;
-extern "C" __declspec(dllexport) HRESULT _stdcall V2Link(iTVPFunctionExporter *exporter)
+EXPORT(HRESULT) V2Link(iTVPFunctionExporter *exporter)
 {
 	LoadMessageFromResource();
 
@@ -225,7 +227,7 @@ extern "C" __declspec(dllexport) HRESULT _stdcall V2Link(iTVPFunctionExporter *e
 	return S_OK;
 }
 //---------------------------------------------------------------------------
-extern "C" __declspec(dllexport) HRESULT _stdcall V2Unlink()
+EXPORT(HRESULT) V2Unlink()
 {
 	// 吉里吉里側から、プラグインを解放しようとするときに呼ばれる関数。
 
